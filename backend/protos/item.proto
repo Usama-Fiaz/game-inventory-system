@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package inventory;
+
+service ItemService {
+  rpc GetItemById (ItemRequest) returns (ItemResponse);
+}
+
+message ItemRequest {
+  int32 id = 1;
+}
+
+message ItemResponse {
+  int32 id = 1;
+  string name = 2;
+  string type = 3;
+  string rarity = 4;
+  int32 quantity = 5;
+}

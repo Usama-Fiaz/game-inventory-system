@@ -1,0 +1,27 @@
+version: '3'
+
+rpc:
+  listen: tcp://127.0.0.1:6001
+
+server:
+  command: php artisan rr:worker
+  relay: pipes
+
+grpc:
+  listen: tcp://0.0.0.0:9001
+  proto:
+    - ./protos/item.proto
+  services:
+    - App\\Grpc\\ItemService
+  tls:
+    disabled: true
+
+logs:
+  mode: development
+  level: info
+  channels:
+    grpc:
+      level: info
+      mode: development
+
+

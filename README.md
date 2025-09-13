@@ -29,6 +29,14 @@
 
 ### With Docker (Recommended)
 
+**Quick setup:**
+```bash
+git clone https://github.com/Usama-Fiaz/game-inventory-system.git
+cd game-inventory-system
+./setup.sh
+```
+
+**Manual setup:**
 ```bash
 git clone https://github.com/Usama-Fiaz/game-inventory-system.git
 cd game-inventory-system
@@ -37,6 +45,7 @@ docker compose up --build -d
 
 The setup will automatically:
 - Build and start all services (PostgreSQL, Redis, RabbitMQ, Backend, Frontend)
+- Install dependencies
 - Run database migrations
 - Start the Laravel server
 

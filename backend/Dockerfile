@@ -18,9 +18,12 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --optimize-autoloader --no-scripts
+
 COPY . .
 
-RUN composer install --no-dev --optimize-autoloader
+RUN composer run-script post-autoload-dump
 
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html

@@ -27,18 +27,23 @@
 
 ## How to Run
 
-### With Docker
+### With Docker (Recommended)
 
 ```bash
-git clone <repository-url>
-cd ValorByte
+git clone https://github.com/Usama-Fiaz/game-inventory-system.git
+cd game-inventory-system
 docker compose up --build -d
-docker compose exec backend php artisan migrate --force
 ```
+
+The setup will automatically:
+- Build and start all services (PostgreSQL, Redis, RabbitMQ, Backend, Frontend)
+- Run database migrations
+- Start the Laravel server
 
 Access:
 - Frontend: http://localhost:3000
-- Backend: http://localhost:8000
+- Backend API: http://localhost:8000/api/items
+- RabbitMQ Management: http://localhost:15672 (admin/admin)
 
 ### Without Docker
 
